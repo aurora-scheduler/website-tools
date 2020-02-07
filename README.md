@@ -1,5 +1,5 @@
 # Aurora Scheduler Website
-This codebase generates the Aurora Scheduler available at
+This codebase generates the Aurora Scheduler website available at
 [aurora-scheduler.github.io](https://aurora-scheduler.github.io).
 
 Community contributions and patches are welcomed to help keep the Aurora site up-to-date;
