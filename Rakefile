@@ -79,7 +79,7 @@ task :generate_docs, [:title, :git_tag] do |t, args|
       puts 'Skipping archive fetch'
     else
       puts "Fetching archive of #{git_tag}"
-      system("wget https://github.com/apache/aurora/archive/#{archive_rel_url} -O #{zip_name}")
+      system("wget https://github.com/aurora-scheduler/aurora/archive/#{archive_rel_url} -O #{zip_name}")
     end
     system("unzip -o #{zip_name} '#{archive_root}/docs/*' '#{archive_root}/CONTRIBUTING.md'")
     FileUtils.mv(File.join(archive_root, 'CONTRIBUTING.md'), File.join(archive_root, 'docs/CONTRIBUTING.md'))
@@ -116,7 +116,7 @@ task :generate_docs, [:title, :git_tag] do |t, args|
             gsub(/\.\.\/CONTRIBUTING\.md/, 'contributing/').
             
             # Rewrite source links pointing to source files in the repository.
-            gsub(/\]\((?:\.\.\/)+([^\)]+\.(?:java|py|js|thrift|xml|json|conf))\)/, "](https://github.com/apache/aurora/blob/#{full_tag}/\\1)").
+            gsub(/\]\((?:\.\.\/)+([^\)]+\.(?:java|py|js|thrift|xml|json|conf))\)/, "](https://github.com/aurora-scheduler/aurora/blob/#{full_tag}/\\1)").
             
             # For relative links, remove .md extension (We have no absolute links and we do not try to handle those here).
             gsub(/\(((?:[._A-Za-z0-9-]+\/)*[_A-Za-z0-9-]+)\.md(#[^\)]+)?\)/, "(#{rel_prefix}\\1/\\2)").
