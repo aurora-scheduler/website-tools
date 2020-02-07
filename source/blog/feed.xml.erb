@@ -1,14 +1,14 @@
 <% coder = HTMLEntities.new %>
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Apache Aurora Blog</title>
-  <id>http://aurora.apache.org/blog</id>
-  <link href="http://aurora.apache.org/blog" />
-  <link href="http://aurora.apache.org/blog/feed.xml" rel="self"/>
+  <title>Aurora Scheduler Blog</title>
+  <id>https://aurora-scheduler.github.io/blog</id>
+  <link href="https://aurora-scheduler.github.io/blog" />
+  <link href="https://aurora-scheduler.github.io/blog/feed.xml" rel="self"/>
   <updated><%= blog.articles.first.date.to_time.iso8601  %></updated>
   <% blog.articles.each do |article| %>
   <entry>
-    <id>http://aurora.apache.org<%= article.url %></id>
+    <id>https://aurora-scheduler.github.io<%= article.url %></id>
     <link href="<%= article.url %>" />
     <title>
       <%= article.title %>

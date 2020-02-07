@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <% pages.each do |page| %>
   <url>
-    <loc>http://aurora.apache.org/<%= page.destination_path.gsub('index.html','') %></loc>
+    <loc>https://aurora-scheduler.github.io/<%= page.destination_path.gsub('index.html','') %></loc>
     <lastmod><%= Date.today.to_time.iso8601 %></lastmod>
   </url>
 <% end %>
