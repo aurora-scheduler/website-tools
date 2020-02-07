@@ -35,25 +35,37 @@ testing the website during development. More info below.
 ### Setting up Local Dev Environment using Docker
 From the root of the repository run the following:
 
-$ docker run -it -v $(pwd):/website -p 4567:4567 apache/aurora-website:dev
+`$ docker run -it -v $(pwd):/website -p 4567:4567 apache/aurora-website:dev`
 
 Execute the remainder of the commands inside of this docker container.
 
+Install dependencies:  
+`$ bundle install`
+
 ### Generating the site
-To generate the site one only needs to run `rake2.0` after performing the setup
+To generate the site one only needs to run `rake` after performing the setup
 tasks mentioned above. This will download the latest Aurora Scheduler documentation
 contained in the `docs` folder, integrate them into the site, and generate all
 other files within the source folder.
 
-    rake2.0
+`rake`
 
 ### Other available tasks
 
-    rake2.0 build         # Build the website from source
-    rake2.0 clean         # Remove any temporary products
-    rake2.0 clobber       # Remove any generated file
-    rake2.0 dev           # Run the site in development mode
-    rake2.0 generate_docs # Fetch documentation from git for rendering.
+Build the website from source  
+`$ rake build`
+
+Remove any temporary products  
+`$ rake clean`
+
+Remove any generated file  
+`$ rake clobber`
+
+Run the site in development mode  
+`$ rake dev`
+
+Fetch documentation from git for rendering  
+`$ rake generate_docs`
 
 ### Generating documentation pages from git
 The majority of our documentation currently lives in git as markdown.  The `generate_docs`
@@ -68,13 +80,13 @@ of documentation.
 If a documentation patch is contributed and you would like to update the website to reflect
 it, you will be updating the documentation for `latest`.
 Note: since documentation is associated with versions, be careful to avoid publishing
-misleading documentation for unreleased featuresl
+misleading documentation for unreleased features
 
-    # This will fetch the docs and place them in `source/documentation/latest`.
-    rake2.0 generate_docs[latest,master]
+This will fetch the docs and place them in `source/documentation/latest`.  
+`$ rake generate_docs[latest,master]`
 
-    # Render the docs.
-    rake2.0
+Render the docs.  
+`$ rake`
 
 #### Updating the documentation for a release.
 After completing an official Aurora release, you should add the new version of documentation and
@@ -84,20 +96,20 @@ $RELEASE in this case is the number version of the release (i.e. 0.22.0).
 
 First, add the new release to the top of `data/downloads.yml`.
 
-    # Add documentation for the new release
-    rake2.0 generate_docs[$RELEASE,$RELEASE]
+Add documentation for the new release  
+`$ rake generate_docs[$RELEASE,$RELEASE]`
 
-    # Update the `latest` release docs
-    rake2.0 generate_docs[latest,$RELEASE]
+Update the `latest` release docs  
+`$ rake generate_docs[latest,$RELEASE]`
 
-    # Render the docs.
-    rake2.0
+Render the docs.  
+`$ rake`
 
 ### Development
-To live edit the site run `rake2.0 dev` and then open a browser window to
+To live edit the site run `rake dev` and then open a browser window to
 `http://localhost:4567`. Any change you make to the sources dir will
 be shown on the local dev site immediately. Errors will be shown in the
-console you launched `rake2.0 dev` within.
+console you launched `rake dev` within.
 
 ## Contributing Website Changes
 Have you made local changes that you would like to contribute to the website?
@@ -112,7 +124,7 @@ The content folder contains the websites content. These newly generated contents
 Before committing ensure that changes from source/ have been properly built in the `content/`
 directory.
 
-`$ git add content source`
+`$ git add content source`  
 `$ git commit -m "Message describing the website changes you've made."`
 
 
