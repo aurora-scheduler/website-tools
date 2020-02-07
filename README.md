@@ -1,10 +1,10 @@
-# Apache Aurora Website
-This codebase generates the Apache Aurora available at
-[http://aurora.apache.org](http://aurora.apache.org).
+# Aurora Scheduler Website
+This codebase generates the Aurora Scheduler available at
+[aurora-scheduler.github.io](https://aurora-scheduler.github.io).
 
 Community contributions and patches are welcomed to help keep the Aurora site up-to-date;
 please see the section below on contributing website changes or feel free to ask questions
-on the Aurora IRC channel, #aurora on Freenode.net.
+on the Aurora Slack channel, #aurora on mesos.slack.com
 
 ## Website Basics
 ### Middleman CMS
@@ -41,7 +41,7 @@ Execute the remainder of the commands inside of this docker container.
 
 ### Generating the site
 To generate the site one only needs to run `rake2.0` after performing the setup
-tasks mentioned above. This will download the latest Apache Aurora documentation
+tasks mentioned above. This will download the latest Aurora Scheduler documentation
 contained in the `docs` folder, integrate them into the site, and generate all
 other files within the source folder.
 
@@ -107,10 +107,7 @@ Make a PR to our website repository through Github.
 All project committers have access to commit to the Aurora website; we encourage those without
 commit access to contribute changes by following the steps above.
 
-The website uses Apache Infra tooling to sync this Git repository with the live site.
-
-The content folder contains the websites content and when changes are committed to the asf-staging
-or asf-site branches, changes will be automatically deployed.
+The content folder contains the websites content. These newly generated contents should be committed to the the [Aurora Scheduler Website](https://github.com/aurora-scheduler/aurora-scheduler.github.io) repository.
 
 Before committing ensure that changes from source/ have been properly built in the `content/`
 directory.
@@ -118,17 +115,6 @@ directory.
 `$ git add content source`
 `$ git commit -m "Message describing the website changes you've made."`
 
-Updates to the current website should first be submitted as a Pull Request to the asf-staging branch.
-
-Once the PR has been merged in the asf-staging branch, a live preview will be available at:
-https://aurora.staged.apache.org/
-
-If the site looks good and functions correctly, a PR should be made to the asf-site branch
-from the asf-staging branch, squashing all commits into a single commit detailing
-the change (usually a release).
-
-Note: there is sometimes a slight delay between merging PRs and
-changes appearing online.
 
 ### Apache License
 Except as otherwise noted this software is licensed under the
